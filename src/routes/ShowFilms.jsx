@@ -1,7 +1,13 @@
 import { useParams } from "react-router-dom" 
 import { useState, useEffect} from "react"
 import axios from "axios"
-import { FaStar } from 'react-icons/fa'
+import { FaStar, FaPlus } from 'react-icons/fa'
+import { AiFillLike, AiFillDislike } from 'react-icons/ai'
+import { FaPlay } from "react-icons/fa"
+import {  GrInstallOption } from 'react-icons/gr'
+import { BiSolidMoviePlay } from "react-icons/bi"
+
+
 
 function ShowFilms() {
 
@@ -28,19 +34,54 @@ function ShowFilms() {
     },[id])
  
   return (
-    <div className="h-dvh  bg-black">
+    <div className="h-dvh grid grid-cols-3 grid-rows-4 bg-black">
         {movie ? (
-        <div>
+        <>
         <img
-          className="w-[60%] h-[60%] mt-5 rounded-lg mb-3"
+          className="w-full h-full object-cover col-start-1 col-end-2 row-start-1 row-end-5"
           src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
           alt={movie.title}
         />
-        <p className="text-white text-center text-lg font-semibold mb-3 flex items-center gap-2"><FaStar/>aldiencia{movie.popularity}</p>
-        <p className="text-white text-center text-lg font-semibold mb-3">
-          {movie.title}
-        </p>
-        </div>) : <p>carregando...</p>  }
+        <div className="col-start-2 col-end-4  h-[100%] flex justify-center items-center">
+            <p className="text-white text-center text-lg font-semibold mb-3">
+            {movie.title}
+            </p>
+        </div>
+        <div className="text-white col-start-2 col-end-4 row-start-2 row-end-3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum voluptatem doloremque, optio asperiores et maiores nemo nulla voluptate voluptatibus inventore doloribus ex quam dolores eius. Recusandae rerum fugit architecto molestias.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit commodi accusamus minus earum, unde cum temporibus, alias excepturi deleniti assumenda explicabo doloremque saepe dignissimos, corporis exercitationem! Nihil officiis id libero.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque accusamus explicabo ratione illo dolore dicta iusto odit. Reprehenderit voluptates inventore consequatur quasi. Officia corrupti ex atque similique consectetur commodi quis.</p>
+        </div>
+
+        <div className="col-start-2 col-end-4  row-start-3 row-end-4 flex items-center justify-evenly">
+            <div className="text-white flex items-center w-[100px] h-[50px] justify-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                <FaPlay/>
+                <p>Assistir</p>
+            </div>
+            <div className="text-white flex items-center w-[100px] h-[50px] justify-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                <GrInstallOption/>
+                <p>instalar</p>
+            </div>
+            </div>
+                <div className="border-t-2 border-white col-start-2 col-end-4 row-start-4 row-end-5 flex items-center justify-evenly">
+                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                        <BiSolidMoviePlay/>
+                        <p>trayler</p>
+                    </div>
+                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                        <AiFillLike/>
+                        <p>gostei</p>
+                    </div>
+                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out ">
+                        <AiFillDislike/>
+                        <p>nao gostei</p>
+                    </div>
+                    <div className="text-white h-[50px] w-[150px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                        <FaPlus/>
+                        <p>adicinar a lista</p>
+                    </div>
+            </div>
+        </>) : <p>carregando...</p>  }
         </div>
   )
 }

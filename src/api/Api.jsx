@@ -2,7 +2,6 @@ import axios from 'axios'
 import { useState,useEffect } from 'react'
 import { FaStar } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import Button from './button'
 
 const Api = () => {
 
