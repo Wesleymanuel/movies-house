@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState,useEffect } from 'react'
 import { FaStar } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import Button from './button'
 
 const Api = () => {
 
@@ -25,11 +26,6 @@ const Api = () => {
         renderApi()
     }, [])
 
-    function showFilm(){
-        navigate('/filmes',{ state: { id: filme.id } })
-    }
-
-
   return (
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 justify-items-center bg-black p-6">
     {filmes.map((filme) => (
@@ -46,8 +42,9 @@ const Api = () => {
         <p className="text-white text-center text-lg font-semibold mb-3">
           {filme.title}
         </p>
-        <button onClick={showFilm} className="px-5 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-600 w-[30%] transition-all">
-          Assistir
+        {/*<Button id={filme.id}/>*/}
+        <button onClick={() => navigate(`/filme/${filme.id}`)} className="px-5 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-600 w-[30%] transition-all">
+            Assistir
         </button>
       </div>
     ))}
