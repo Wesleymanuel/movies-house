@@ -8,6 +8,7 @@ import store from './redux/Store.js'
 import InitialPage from './initialPage.jsx'
 import Login from './routes/Login.jsx'
 import ShowFilms from './routes/ShowFilms.jsx'
+import Seach from './routes/Seach.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
           <Route path='/login' element={<Login/>}/>
           <Route path='/home' element={<App/>}/>
           <Route path='/filme/:id' element={<ShowFilms/>}/>
+          <Route path='/search' element={<Seach/>}/>
         </Routes>
       </Provider>
     </BrowserRouter>

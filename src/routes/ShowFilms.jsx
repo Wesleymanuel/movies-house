@@ -54,29 +54,29 @@ function ShowFilms() {
         </div>
 
         <div className="col-start-2 col-end-4  row-start-3 row-end-4 flex items-center justify-evenly">
-            <div className="text-white flex items-center w-[100px] h-[50px] justify-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+            <div className="text-white flex items-center w-[100px] h-[50px] justify-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
                 <FaPlay/>
                 <p>Assistir</p>
             </div>
-            <div className="text-white flex items-center w-[100px] h-[50px] justify-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+            <div className="text-white flex items-center w-[100px] h-[50px] justify-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
                 <GrInstallOption/>
                 <p>instalar</p>
             </div>
             </div>
                 <div className="border-t-2 border-white col-start-2 col-end-4 row-start-4 row-end-5 flex items-center justify-evenly">
-                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
                         <BiSolidMoviePlay/>
                         <p>trayler</p>
                     </div>
-                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
                         <AiFillLike/>
                         <p>gostei</p>
                     </div>
-                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out ">
+                    <div className="text-white h-[50px] w-[100px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
                         <AiFillDislike/>
                         <p>nao gostei</p>
                     </div>
-                    <div className="text-white h-[50px] w-[150px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                    <div className="text-white h-[50px] w-[150px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
                         <FaPlus/>
                         <p>adicinar a lista</p>
                     </div>
