@@ -1,9 +1,9 @@
-import axios from 'axios'
-import { useState,useEffect } from 'react'
+import { useState,useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import axios from "axios"
 import { FaRegCirclePlay } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom'
 
-const Api = () => {
+const TerrorMovies = () => {
 
     const api_url = import.meta.env.VITE_API_URL
     const api_key = import.meta.env.VITE_API_KEY
@@ -13,7 +13,7 @@ const Api = () => {
 
     const renderApi = async () => {
         try{
-            const res = await axios.get(`${api_url}/movie/popular?api_key=${api_key}&language=pt-BR&page=1`)
+            const res = await axios.get(`${api_url}/discover/movie?api_key=${api_key}&with_genres=27&language=pt-BR`)
             console.log(res.data.results)
             setFilmes(res.data.results || [])
         }catch(error){
@@ -25,21 +25,20 @@ const Api = () => {
         renderApi()
     }, [])
 
+
   return (
-      <div className=''>
-        <h1 className="text-white h-10 font-mono text-lg">Filmes mais procurados</h1>
+    <div className="mt-10">
+        <h1 className="text-white h-10 font-mono text-lg">Terror</h1>
         <div className="flex gap-4 overflow-x-auto scrollbar-hidden px-4">
             {filmes.map(filme => (
-                <div className='relative' key={filme.id}>
-                    <img className="min-w-[160px] md:min-w-[250px] flex-shrink-0 rounded-lg overflow-hidden shadow-lg" src={`https://image.tmdb.org/t/p/w300${filme.poster_path}`} alt={filme.title} />
+                <div className="relative" key={filme.id}>
+                    <img className="min-w-[100px] md:min-w-[150px] flex-shrink-0 rounded-lg overflow-hidden shadow-lg" src={`https://image.tmdb.org/t/p/w300${filme.poster_path}`} alt={filme.title} />
                     <button onClick={() => navigate(`/filme/${filme.id}`)} className='absolute bottom-3 left-3'><FaRegCirclePlay className='size-10 text-white'/></button>
                 </div>
             ))}
         </div>
     </div>
-);    
-
-
+  )
 }
 
-export default Api
+export default TerrorMovies;
