@@ -1,45 +1,149 @@
-import { useState } from "react"
+import { useState } from 'react';
+import { TextInput, Tooltip,  PasswordInput, NativeSelect,  Button} from '@mantine/core';
+import { DateInput } from '@mantine/dates';
+import { IMaskInput } from 'react-imask';
+import { useForm } from '@mantine/form'
+import './Login.css';
+import axios from 'axios';
+
 
 const Login = () => {
 
-    const [email, setEmail] = useState('')
-    const [senha,setSenha] = useState('') 
-    const [nome, setNome] = useState('')
-    const [cpf, setCpf] = useState('')
+    const form = useForm({
+        initialValues : {
+            email : '',
+            nome : "",
+            sobre_nome: "",
+            data_nascimento: "",
+            cpf: "",
+            pais: '',
+            estado: '',
+            cidade: "",
+            senha: ''
+        },
+    validate: {
+        email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+        senha: (value) => value.length < 6 ? "senha muito curta" : null,
+        nome: (value) => value === '' ? "nome incompleto" : null,
+        sobre_nome: (value) => value === '' ? "nome incompleto" : null,
+        pais : (value) => value === '' ? "nome incompleto" : null,
+        cidade : (value) => value === '' ? "nome incompleto" : null,
+        estado : (value) => value === '' ? "nome incompleto" : null,
+        cpf: (value) => value.length === 14 ? null : 'CPF incompleto (use o formato 000.000.000-00)'
+    }
+    })
+     const [focused, setFocused] = useState(false);
+     const [focused2, setFocused2] = useState(false);
+     const [value, setValue] = useState(null);
 
-    function cadastro(e){
-        e.preventDefault()
+    const cadastroUsuario = async (values) => {
+        try{
+           const res = await axios.post('http://localhost:3000/ola', values)
+           console.log(res.data)
+        }catch(error){
+            console.log(error)
+        }
     }
 
+
+
   return (
-    <div className="h-dvh flex justify-center items-center">
-        <div className="h-[90%] w-[40%]">
-            <form onSubmit={cadastro} className="flex flex-col items-center gap-7 bg-yellow-400">
-                <div>
-                    <label htmlFor="email">email:
-                    <input name="email" className="h-10 border-0 border-b-2 border-gray-500 focus:border-gray-700 bg-transparent outline-none " onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder="xxxxxx@gmil.com" />
-                    </label> 
+    <div className="login-conteiner">
+        <div className="form-conteiner">
+            <form onSubmit={form.onSubmit(cadastroUsuario)} className="form ">
+                <div className='w-[48%]'>
+                    <TextInput
+                        label="Nome"
+                        placeholder="Nome"
+                        onFocus={() => setFocused(true)}
+                        onBlur={() => setFocused(false)}
+                        {...form.getInputProps('nome')}
+                        inputContainer={(children) => (
+                            <Tooltip label="Digite o primeiro nome" position="top-start" opened={focused}>
+                            {children}
+                            </Tooltip>
+                        )}
+                    />
                 </div>
-                <div> 
-                    <label htmlFor="nome"/>nome:
-                    <input name="nome" className="h-10 border-0 border-b-2 border-gray-500 focus:border-gray-700 bg-transparent outline-none autofill:bg-transparent" onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder="nome do usuario"/></div>
-                <div> 
-                    <label htmlFor="cpf"/>CPF:
-                    <input name="cpf" className="h-10 border-0 border-b-2 border-gray-500 focus:border-gray-700 bg-transparent outline-none " onChange={(e) => setCpf(e.target.value)} value={cpf} type="text" placeholder="xxx.xxx.xxx-xx" /></div>
-                <div> 
-                    <label htmlFor="senha"/>senha:
-                    <input name="senha" className="h-10 border-0 border-b-2 border-gray-500 focus:border-gray-700 bg-transparent outline-none " onChange={(e) => setSenha(e.target.value)} value={senha} type="text" placeholder="senha"/></div>
-                <div> 
-                    <label htmlFor="data"/>data:
-                    <input name='data' className="h-10 border-0 border-b-2 border-gray-500 focus:border-gray-700 bg-transparent outline-none " type="date" /></div>
-                <div> 
-                    <label htmlFor="cidade"/>cidade:
-                    <input name="cidade" className="h-10 border-0 border-b-2 border-gray-500 focus:border-gray-700 bg-transparent outline-none " type="text" placeholder="cidade"/></div>
-                <div> 
-                    <label htmlFor="cep"/>CEP:
-                    <input className="h-10 border-0 border-b-2 border-gray-500 focus:border-gray-700 bg-transparent outline-none " onChange={(e) => setCpf(e.target.value)} value={cpf} type="text" placeholder="xxx.xxx.xxx-xx" /></div>
-                <div className="h-27px">
-                    <button type="submit"  onClick={(e) => console.log("clicou")}>cadastrar</button>
+                <div className='w-[48%]'>
+                    <TextInput
+                        label="Sobrenome"
+                        placeholder="Sobrenome"
+                        onFocus={() => setFocused2(true)}
+                        onBlur={() => setFocused2(false)}
+                        {...form.getInputProps('sobre_nome')}
+                        inputContainer={(children) => (
+                            <Tooltip label="Digite o sobre nome" position="top-start" opened={focused2}>
+                            {children}
+                            </Tooltip>
+                        )}
+                    />
+                </div>
+                <div className='w-[30%]'>
+                    <DateInput
+                    value={value}
+                    onChange={setValue}
+                    label="Date input"
+                    placeholder="Date input"
+                    style={{ width: '100%' }}
+                    />  
+                </div>
+                <div className='w-[60%]'>
+                    <NativeSelect label="genero" data={['Masculino', 'Femenino', 'Indeferido']} />
+                </div>
+                <div className='w-[60%]'>
+                    <TextInput       
+                        label="CPF"
+                        placeholder="000.000.000-00"
+                        component={IMaskInput}
+                        mask="000.000.000-00"
+                        {...form.getInputProps('cpf')}
+                    />
+                </div>
+                <div className='w-[38%] ml-[2%]'>
+                    <TextInput
+                        label="Pais"
+                        placeholder="Input placeholder"
+                        {...form.getInputProps('pais')}
+                    />
+                </div>
+                <div className='w-[45%]'>
+                    <TextInput
+                        label="Estado"
+                        placeholder="Estado"
+                        {...form.getInputProps('estado')}
+                    />
+                </div>
+                <div className='w-[50%]'>
+                    <TextInput
+                        label="Cidade"
+                        placeholder="Cidade"
+                        {...form.getInputProps('cidade')}
+                    />
+                </div>
+                <div className='w-[50%]'>
+                    <TextInput
+                        label="Email"
+                        placeholder="xxxxxx@gmail.com"
+                        {...form.getInputProps('email')}
+                    />               
+                </div>
+                <div className='w-[48%]'>
+                    <PasswordInput
+                        label="Sua Senha"
+                        placeholder="senha"
+                        {...form.getInputProps('senha')}
+                    />
+                </div>
+                <div className='w-full flex justify-center mt-[7%]' >
+                    <Button
+                        type='submit'
+                        variant="gradient"
+                        gradient={{ from: 'orange', to: 'yellow', deg: 0 }}
+                        style={{ width : "100px"}}
+                        >
+                        Enviar
+                    </Button>
                 </div>
             </form>
         </div>

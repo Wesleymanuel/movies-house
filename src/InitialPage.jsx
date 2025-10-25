@@ -1,28 +1,37 @@
 import { MdOutlineCameraIndoor } from 'react-icons/md'
 import { GrAddCircle } from 'react-icons/gr'
 import { Link } from 'react-router-dom'
+import './InitialPage.css'
+import { PasswordInput } from '@mantine/core';
+import { TextInput } from '@mantine/core';
 
 const InitialPage = () => {
   return (
-    <main className='h-dvh p-0 m-0 box-border flex flex-col w-[24%] items-start'>
-        <nav className='h-full flex flex-col justify-center w-full bg-yellow-400 gap-[20px]'>
-          <div className='flex flex-row justify-center h-[20%] flex-wrap'>
-            <div className='h-[50%] flex flex-row w-[100%] justify-center items-center'><MdOutlineCameraIndoor className='h-full w-auto'/></div>
-            <h1 className='h-[40%] text-[25px]'>movies-house</h1>
-          </div>
-            <div className='flex flex-col justify-start items-center w-full h-[20%] gap-4'>
-              <input
-                type='text'
-                placeholder='xxxxxxxx@gmail.com'
-                className='h-8 w-[75%] border border-solid px-2 rounded-md'
-              />
-              <input
-                type='text'
-                placeholder=''
-                className='h-8 w-[75%] border border-solid px-2 rounded-md'
-              />
-              <div className="w-[75%] flex justify-start">
-                <Link to={'/login'}><GrAddCircle className="cursor-pointer text-2xl" /></Link>
+    <main className='main'>
+        <nav className='nav-home'>
+          <div className='content'>
+            <div className='logo-conteiner'>
+              <div><MdOutlineCameraIndoor className='logo'/></div>
+              <h1>movies-house</h1>
+            </div>
+              <div className='inputs-home'>
+                <div>
+                    <TextInput 
+                      className='input email'
+                      label="Email"
+                      placeholder="xxxxxx@gmail.com"
+                    />
+                </div>
+                <div>
+                    <PasswordInput
+                      className='input senha'
+                      label="Senha"
+                      placeholder="senha"
+                    />
+                </div>
+                <div className="button-login">
+                  <Link className='' to={'/login'}><GrAddCircle className="button" /></Link>
+                </div>
               </div>
             </div>
         </nav>
