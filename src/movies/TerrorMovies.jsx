@@ -2,6 +2,7 @@ import { useState,useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { FaRegCirclePlay } from "react-icons/fa6";
+import '../api/Api.css'
 
 const TerrorMovies = () => {
 
@@ -27,13 +28,13 @@ const TerrorMovies = () => {
 
 
   return (
-    <div className="mt-10">
-        <h1 className="text-white h-10 font-mono text-lg">Terror</h1>
-        <div className="flex gap-4 overflow-x-auto scrollbar-hidden px-4">
+    <div>
+        <h1 className="movies-types">Romances</h1>
+        <div className="conteiner-movies">
             {filmes.map(filme => (
-                <div className="relative" key={filme.id}>
-                    <img className="min-w-[100px] md:min-w-[150px] flex-shrink-0 rounded-lg overflow-hidden shadow-lg" src={`https://image.tmdb.org/t/p/w300${filme.poster_path}`} alt={filme.title} />
-                    <button onClick={() => navigate(`/filme/${filme.id}`)} className='absolute bottom-3 left-3'><FaRegCirclePlay className='size-10 text-white'/></button>
+                <div className="movies" key={filme.id}>
+                    <img className="movies-img" style={{ maxWidth : "200px" }} src={`https://image.tmdb.org/t/p/w300${filme.poster_path}`} alt={filme.title} />
+                    <button onClick={() => navigate(`/filme/${filme.id}`)} className='button'><FaRegCirclePlay className='img-button'/></button>
                 </div>
             ))}
         </div>

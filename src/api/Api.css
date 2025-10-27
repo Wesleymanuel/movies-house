@@ -1,0 +1,43 @@
+.movies-type{
+    color: white;
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+.conteiner-movies{
+    display: flex;
+    gap: 4;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.movies{
+    position: relative;
+    color: white;
+    max-height: 430px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.movies .movies-img{
+    max-width: 270px ;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 3px;
+    overflow-y: none;
+    background-size: contain;
+
+}
+.button{
+  position: absolute;
+  bottom: 10px; 
+  left: 5px; 
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
+.img-button{
+    position: relative;
+    font-size: 40px;
+}
