@@ -1,0 +1,10 @@
+.app-conteiner{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 100%;
+    background-color: black;
+}
+.app-conteiner div{
+    color: white;
+}
