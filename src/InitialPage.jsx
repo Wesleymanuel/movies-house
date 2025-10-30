@@ -1,5 +1,5 @@
 import { MdOutlineCameraIndoor } from 'react-icons/md'
-import { GrAddCircle } from 'react-icons/gr'
+import { LuCirclePlus } from 'react-icons/lu';
 import { Link } from 'react-router-dom'
 import './InitialPage.css'
 import { PasswordInput } from '@mantine/core';
@@ -12,7 +12,7 @@ const InitialPage = () => {
           <div className='content'>
             <div className='logo-conteiner'>
               <div><MdOutlineCameraIndoor className='logo'/></div>
-              <h1>movies-house</h1>
+              <h1 style={{color : "yellow"}}>movies-house</h1>
             </div>
               <div className='inputs-home'>
                 <div>
@@ -28,9 +28,11 @@ const InitialPage = () => {
                       label="Senha"
                       placeholder="senha"
                     />
+                <div className='div-button'>
+                  <Link to={'/login'}>
+                     <LuCirclePlus style={{ fontSize : "25px", color: "white"}}/>
+                  </Link>
                 </div>
-                <div className="button-login">
-                  <Link className='' to={'/login'}><GrAddCircle className="button" /></Link>
                 </div>
               </div>
             </div>

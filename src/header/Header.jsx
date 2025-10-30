@@ -3,6 +3,7 @@ import Buttons from '../assets/Buttons.jsx'
 import { MdOutlineCameraIndoor } from 'react-icons/md'
 import { IoPersonCircleSharp } from "react-icons/io5"
 import { Link } from 'react-router-dom'
+import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -15,6 +16,9 @@ const Header = () => {
             </div>
             <div className='w-[55%]'><Buttons/></div>
             <div className='opcoes'>
+              <Link  className='link' to={'/search'}>
+                <FaSearch style={{ fontSize : "20px" , color : "white"}}/>
+              </Link>
               <IoPersonCircleSharp style={{ fontSize : "40px"}} />
             </div>
         </nav>
