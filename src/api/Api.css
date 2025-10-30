@@ -1,7 +1,8 @@
-.movies-type{
+.movies-types{
     color: white;
     font-size: x-large;
     font-family: 'Courier New', Courier, monospace;
+    margin-left: 10px;
 }
 .conteiner-movies{
     display: flex;

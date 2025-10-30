@@ -29,7 +29,7 @@ const TerrorMovies = () => {
 
   return (
     <div>
-        <h1 className="movies-types">Romances</h1>
+        <h1 className="movies-types">Terror</h1>
         <div className="conteiner-movies">
             {filmes.map(filme => (
                 <div className="movies" key={filme.id}>

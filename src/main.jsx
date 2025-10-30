@@ -11,6 +11,7 @@ import Login from './routes/Login.jsx'
 import ShowFilms from './routes/ShowFilms.jsx'
 import Seach from './routes/Seach.jsx'
 import { MantineProvider } from '@mantine/core'
+import TopicMovies from './routes/TopicMovies.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='/home' element={<App/>}/>
             <Route path='/filme/:id' element={<ShowFilms/>}/>
             <Route path='/search' element={<Seach/>}/>
+            <Route path='/topc' element={<TopicMovies/>}/>
           </Routes>
         </Provider>
       </BrowserRouter>
