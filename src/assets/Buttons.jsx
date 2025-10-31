@@ -1,6 +1,7 @@
 import './Buttons.css'
 import { useNavigate } from 'react-router-dom'
 
+
 const Buttons = () => {
 
   const navigate = useNavigate()

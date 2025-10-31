@@ -9,6 +9,7 @@ import axios from 'axios';
 
 const Login = () => {
 
+
     const form = useForm({
         initialValues: {
             email: '',
@@ -153,8 +154,9 @@ const Login = () => {
                     </div>
                 </form>
             </div>
-        </div>
+        </div> 
     )
-}
 
+            
+};
 export default Login
