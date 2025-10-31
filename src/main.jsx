@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import '@mantine/core/styles.css'
 import App from './App.jsx'
+import { MantineProvider } from '@mantine/core'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './redux/Store.js'
@@ -14,17 +15,19 @@ import TopicMovies from './routes/TopicMovies.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <Routes>
-          <Route path='/' element={<InitialPage/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/home' element={<App/>}/>
-          <Route path='/filme/:id' element={<ShowFilms/>}/>
-          <Route path='/search' element={<Seach/>}/>
-          <Route path='/topc' element={<TopicMovies/>}/>
-        </Routes>
-      </Provider>
-    </BrowserRouter>
+    <MantineProvider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Routes>
+            <Route path='/' element={<InitialPage/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/home' element={<App/>}/>
+            <Route path='/filme/:id' element={<ShowFilms/>}/>
+            <Route path='/search' element={<Seach/>}/>
+            <Route path='/topc' element={<TopicMovies/>}/>
+          </Routes>
+        </Provider>
+      </BrowserRouter>
+    </MantineProvider>
   </StrictMode>,
 )

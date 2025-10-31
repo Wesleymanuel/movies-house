@@ -4,8 +4,17 @@ import { MdOutlineCameraIndoor } from 'react-icons/md'
 import { IoPersonCircleSharp } from "react-icons/io5"
 import { Link } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa";
+import { useState } from 'react'
+import ContOptions from '../assets/ContOptions.jsx'
 
 const Header = () => {
+
+  const [side, setSide] = useState(false)
+
+  const sideBar = () => {
+    setSide(true)
+  }
+
   return (
     <div className='conteiner'>
         <nav className='header'>
@@ -19,7 +28,7 @@ const Header = () => {
               <Link  className='link' to={'/search'}>
                 <FaSearch style={{ fontSize : "20px" , color : "white"}}/>
               </Link>
-              <IoPersonCircleSharp style={{ fontSize : "40px"}} />
+              {side ? (<ContOptions/>) : (<IoPersonCircleSharp className='cont-button' onClick={sideBar} style={{ fontSize : "40px"}} />)}
             </div>
         </nav>
     </div>
