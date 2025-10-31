@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState,useEffect } from "react" 
 import Table from "../assets/Table"
+import './Search.css'
 
 
 const Seach = () => {
@@ -40,15 +41,15 @@ const Seach = () => {
    
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-dvh bg-black text-white">
-        <div className="row-span-4 col-span-2 flex flex-col items-center justify-center gap-4">
-            <div className="text-white text-xl">{query}</div>
+    <div className="search-conteiner">
+        <div className="table-conteiner">
+            <div className="texto">{query}</div>
             <Table onLetterClick={handleLetterClick} />
         </div>
 
-        <div className="row-span-4 col-span-2 overflow-y-auto p-4">
+        <div className="title-movies">
             {movieTitle.map((titleMovie) => (
-            <div key={titleMovie.id} className="mb-3 border-b border-gray-600 pb-2">
+            <div key={titleMovie.id} className="movies">
                 <h1>{titleMovie.title}</h1>
             </div>
             ))}
