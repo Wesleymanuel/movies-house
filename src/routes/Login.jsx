@@ -14,8 +14,8 @@ const Login = () => {
         initialValues: {
             email: '',
             nome: "",
-            sobre_nome: "",
-            data_nascimento: "",
+            sobrenome: "",
+            genero: 'masculino',
             cpf: "",
             pais: '',
             estado: '',
@@ -26,11 +26,12 @@ const Login = () => {
             email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
             senha: (value) => value.length < 6 ? "senha muito curta" : null,
             nome: (value) => value === '' ? "nome incompleto" : null,
-            sobre_nome: (value) => value === '' ? "nome incompleto" : null,
+            sobrenome: (value) => value === '' ? "nome incompleto" : null,
             pais: (value) => value === '' ? "nome incompleto" : null,
             cidade: (value) => value === '' ? "nome incompleto" : null,
             estado: (value) => value === '' ? "nome incompleto" : null,
-            cpf: (value) => value.length === 14 ? null : 'CPF incompleto (use o formato 000.000.000-00)'
+            cpf: (value) => value.length === 14 ? null : 'CPF incompleto (use o formato 000.000.000-00)',
+            genero : (value) => value === '' ? "genero invalido" : null
         }
     })
     const [focused, setFocused] = useState(false);
@@ -40,18 +41,22 @@ const Login = () => {
     const cadastroUsuario = async (values) => {
         try {
             const payload = {
-                name: values.nome,
-                email: values.email,
-                cpf: values.cpf,
-                senha: values.senha
-            };
-            const res = await axios.post('http://localhost:3000/ola', payload)
+                nome : values.nome,
+                sobrenome : values.sobrenome,
+                genero : values.genero,
+                cpf : values.cpf,
+                pais : values.pais,
+                estado : values.estado,
+                cidade : values.cidade,
+                email : values.email,
+                senha : values.senha
+            }
+            const res = await axios.post('http://localhost:3000/ola', payload )
             console.log(res.data)
         } catch (error) {
             console.log(error)
         }
     }
-
 
 
     return (
@@ -78,7 +83,7 @@ const Login = () => {
                             placeholder="Sobrenome"
                             onFocus={() => setFocused2(true)}
                             onBlur={() => setFocused2(false)}
-                            {...form.getInputProps('sobre_nome')}
+                            {...form.getInputProps('sobrenome')}
                             inputContainer={(children) => (
                                 <Tooltip label="Digite o sobre nome" position="top-start" opened={focused2}>
                                     {children}
@@ -96,7 +101,7 @@ const Login = () => {
                         />
                     </div>
                     <div className='w-[60%]'>
-                        <NativeSelect label="genero" data={['Masculino', 'Femenino', 'Indeferido']} />
+                        <NativeSelect label="genero" data={['Masculino', 'Femenino', 'Indeferido']}  {...form.getInputProps('genero')}/>
                     </div>
                     <div className='w-[60%]'>
                         <TextInput

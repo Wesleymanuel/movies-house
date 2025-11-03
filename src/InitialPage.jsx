@@ -5,10 +5,44 @@ import './InitialPage.css'
 import { PasswordInput, Button } from '@mantine/core';
 import { TextInput } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from '@mantine/form';
+import axios from 'axios';
+
+
+
 
 const InitialPage = () => {
 
   const navigate = useNavigate()
+
+  const form = useForm({
+  initialValues : {
+    email : '',
+    senha : ''
+  },
+  validate : {
+    email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+    senha: (value) => value.length < 6 ? "senha muito curta" : null,
+  }
+})
+
+const loginUser = async (values) => {
+  try{
+    const payload = {
+      email : values.email,
+      senha : values.senha
+    }
+    const res = await axios.post('http://localhost:3000/login', payload)
+    localStorage.setItem("token" , res.data.token)
+    console.log("clicou")
+    navigate('/home')
+  }catch(error){
+    console.log(error)
+  }
+}
+
+
+
 
   return (
     <main className='main'>
@@ -18,12 +52,13 @@ const InitialPage = () => {
               <div><MdOutlineCameraIndoor className='logo'/></div>
               <h1 style={{color : "yellow"}}>movies-house</h1>
             </div>
-             <div className='inputs-home'>
+             <form className='inputs-home' onSubmit={form.onSubmit(loginUser)}>
                 <div>
                   <TextInput 
                     className='input email'
                     label="Email"
                     placeholder="xxxxxx@gmail.com"
+                    {...form.getInputProps('email')}
                   />
                 </div>
 
@@ -32,11 +67,12 @@ const InitialPage = () => {
                     className='input senha'
                     label="Senha"
                     placeholder="senha"
+                    {...form.getInputProps('senha')}
                   />
                 </div>
 
                 <div>
-                  <Button className='bot'style={{background : 'yellow', color: "black"}} onClick={() => navigate('/home')} >
+                  <Button type='submit' className='bot'style={{background : 'yellow', color: "black"}} >
                     botao
                   </Button>
                 </div>
@@ -46,7 +82,7 @@ const InitialPage = () => {
                     <LuCirclePlus style={{ fontSize: "25px", color: "white" }}/>
                   </Link>
                 </div>
-              </div>
+              </form>
 
             </div>
         </nav>
