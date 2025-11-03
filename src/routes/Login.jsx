@@ -145,9 +145,7 @@ const Login = () => {
                     <div className='w-full flex justify-center mt-[7%]' >
                         <Button
                             type='submit'
-                            variant="gradient"
-                            gradient={{ from: 'orange', to: 'yellow', deg: 0 }}
-                            style={{ width: "100px" }}
+                            style={{ width: "100px", background : "yellow",color: "black" }}
                         >
                             Enviar
                         </Button>

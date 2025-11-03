@@ -30,6 +30,13 @@
     width: 60%;
     margin: 0 auto;
 }
+.bot {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 .div-button{
   display: flex;
   justify-content: flex-start; 
