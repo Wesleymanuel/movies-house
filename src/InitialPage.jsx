@@ -78,8 +78,16 @@ const loginUser = async (values) => {
                 </div>
 
                 <div className='div-button'>
-                  <Link to={'/login'}>
+                  <Link className='nav-link' to={'/recuperacao'}>
                     <LuCirclePlus style={{ fontSize: "25px", color: "white" }}/>
+                    <p>Esqueceu sua senha?</p>
+                  </Link>
+                </div>
+
+                <div className='div-button'>
+                  <Link className='nav-link' to={'/login'}>
+                    <LuCirclePlus style={{ fontSize: "25px", color: "white" }}/>
+                    <p>Não tem conta?</p>
                   </Link>
                 </div>
               </form>

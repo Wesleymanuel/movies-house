@@ -13,6 +13,7 @@ import ShowFilms from './routes/ShowFilms.jsx'
 import Seach from './routes/Seach.jsx'
 import TopicMovies from './routes/TopicMovies.jsx'
 import ProtectedRoute from './routes/ProtectedRoute.jsx'
+import PassowordRecovery from './routes/PassowordRecovery.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
         <Provider store={store}>
           <Routes>
             <Route path='/' element={<InitialPage/>}/>
+            <Route path='/recuperacao' element={<PassowordRecovery/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route element={<ProtectedRoute/>}>
               <Route path='/home' element={<App/>}/>

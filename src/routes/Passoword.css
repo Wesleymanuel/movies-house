@@ -1,0 +1,11 @@
+.passoword-conteiner{
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.passoword-forms{
+    height: 50%;
+    background-color: aqua;
+    width: 50%;
+}
