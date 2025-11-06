@@ -7,7 +7,7 @@ import ModalPassword from '../assets/ModalPassword'
 
 const PassowordRecovery = () => {
 
-    const [modal, setModal] = useState(true)
+
 
 
     const form = useForm({
@@ -32,11 +32,8 @@ const PassowordRecovery = () => {
 
   return (
     <div className='passoword-conteiner'>
-        {modal ? 
-        (<ModalPassword  setModalodal={setModal}/>)
-         : 
-        (<ModalPassword text={text}/>)}
-        </div>
+        <ModalPassword/>
+    </div>
   )
 }
 

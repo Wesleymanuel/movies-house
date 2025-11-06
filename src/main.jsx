@@ -24,12 +24,12 @@ createRoot(document.getElementById('root')).render(
             <Route path='/' element={<InitialPage/>}/>
             <Route path='/recuperacao' element={<PassowordRecovery/>}/>
             <Route path='/login' element={<Login/>}/>
-            <Route element={<ProtectedRoute/>}>
+            {/*<Route element={<ProtectedRoute/>}></Route>*/ }
               <Route path='/home' element={<App/>}/>
               <Route path='/filme/:id' element={<ShowFilms/>}/>
               <Route path='/search' element={<Seach/>}/>
               <Route path='/topc' element={<TopicMovies/>}/>
-            </Route>
+            
           </Routes>
         </Provider>
       </BrowserRouter>

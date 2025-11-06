@@ -1,27 +1,26 @@
 import { IoPersonCircleSharp } from "react-icons/io5"
-import { BiMoviePlay } from "react-icons/bi";
+import { FaMicrochip } from "react-icons/fa6";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { SlLike } from "react-icons/sl";
+import { PiListStarFill } from "react-icons/pi";
 import './Cont.css'
 
 const ContOptions = () => {
+
   return (
     <div className="cont-conteiner">
-        <div className="cont-image">
-            <IoPersonCircleSharp/>
-        </div>
-        <div>
-            <div className="filmes-favoritos">
-                <BiMoviePlay/>
-                <p>Filmes Favoritos</p>
+        <div className="option-films">
+            <div className="filmes-options">
+                <FaMicrochip className="icons"/>
             </div>
-            <div className="filmes-alugados">
-                <FaMoneyCheckDollar/>
-                <p>Filmes Alugados</p>
+            <div className="filmes-options">
+                <FaMoneyCheckDollar className="icons"/>
             </div>
-            <div>
-                <SlLike/>
-                <p>Filmes Marcados com Gostei</p>
+            <div className="filmes-options">
+                <SlLike className="icons"/>
+            </div>
+            <div className="filmes-options">
+                <PiListStarFill className="icons"/>
             </div>
         </div>
     </div>
@@ -29,3 +28,7 @@ const ContOptions = () => {
 }
 
 export default ContOptions
+
+{/*        <div className="cont-image">
+            <IoPersonCircleSharp/>
+        </div> */}

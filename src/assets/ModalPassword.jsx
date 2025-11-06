@@ -1,18 +1,17 @@
-import { Stepper,  Button, Group } from '@mantine/core'
+import { Stepper,  Button, Group, PasswordInput } from '@mantine/core'
 import { TextInput} from '@mantine/core'
 import { useState } from 'react';
 
-const ModalPassword = ({setModal,text}) => {
+const ModalPassword = () => {
 
     const [active, setActive] = useState(1);
 
+
     const nextStep = () => {
         setActive((current) => (current < 3 ? current + 1 : current))
-        setModal(false)
     };
     const prevStep = () => {
         setActive((current) => (current > 0 ? current - 1 : current))
-        setModal(true)
     };
 
   return (
@@ -29,17 +28,37 @@ const ModalPassword = ({setModal,text}) => {
                 </Stepper>
     
             <form className='passoword-forms'>
-                <div className='input-cont div'>
-                    <TextInput style={{width : "100%"}}
-                    label='Email'
-                    />
-                    <TextInput style={{width : "100%" , marginTop: "0px"}}
-                    label="Confirme o email"
-                    />
-                </div>
+                 {active == 1 || active == 0 ? (                
+                    <div className='input-cont div'>
+                        <TextInput style={{width : "100%"}}
+                        label='Email'
+                        />
+                        <TextInput style={{width : "100%" , marginTop: "25px"}}
+                        label="Confirme o email"
+                        />
+                    </div>
+                ) 
+                : active == 2 ?
+                (
+                    <div className='input-cont div'>
+                        <PasswordInput style={{width : "100%"}}
+                        label='Nova Senha'
+                        />
+                        <PasswordInput style={{width : "100%" , marginTop: "25px"}}
+                        label="Confirme a Senha"
+                        />
+                    </div>
+                ) 
+                :
+                (
+                    <div>
+                        <h1>Senha Renovada</h1>
+                    </div>
+                )}
+
                 <div className='button-cont div'>
                     <Group justify="center" mt="xl">
-                        <Button variant="default" onClick={prevStep}>Passo Anterior</Button>
+                        <Button variant="default" type='submit' onClick={prevStep}>Passo Anterior</Button>
                         <Button onClick={nextStep}>Proximo Passo</Button>
                     </Group>
                 </div>

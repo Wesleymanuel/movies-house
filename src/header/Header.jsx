@@ -9,12 +9,6 @@ import ContOptions from '../assets/ContOptions.jsx'
 
 const Header = () => {
 
-  const [side, setSide] = useState(false)
-
-  const sideBar = () => {
-    setSide(true)
-  }
-
   return (
     <div className='conteiner'>
         <nav className='header'>
@@ -28,7 +22,6 @@ const Header = () => {
               <Link  className='link' to={'/search'}>
                 <FaSearch style={{ fontSize : "20px" , color : "white"}}/>
               </Link>
-              {side ? (<ContOptions/>) : (<IoPersonCircleSharp className='cont-button' onClick={sideBar} style={{ fontSize : "40px"}} />)}
             </div>
         </nav>
     </div>

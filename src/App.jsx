@@ -13,6 +13,7 @@ function App() {
       <RomaceFilms/>
       <Api/>
       <TerrorMovies/>
+      <ContOptions/>
     </div>
   )
 }
