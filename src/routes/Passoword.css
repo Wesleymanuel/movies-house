@@ -5,7 +5,42 @@
     align-items: center;
 }
 .passoword-forms{
-    height: 50%;
+    height: 70%;
     background-color: aqua;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 10px;
+}
+.div{
+    display: flex;
+    justify-content: center;
+}
+.cont-icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cont-icons p{
+    width: 70%;
+}
+.button-cont{
+    height: 10%;
+    display: flex;
+    align-items: end;
+}
+.input-cont{
+    width: 70%;
+    height: 34%;
+    display: flex;
+    flex-direction: column;justify-content: space-between;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 30%;
 }
