@@ -1,10 +1,10 @@
 const initialState = {
-    userLogin: null
+    moviesSaved: []
 }
 
 export default function userRedux(state = initialState , action){
-    if(action.type === 'user/login'){
-        return {...state, userLogin : true}
+    if(action.type === 'saved'){
+        return {...state, moviesSaved : [...initialState.moviesSaved,action.payload]}
     }
     return state;
 }

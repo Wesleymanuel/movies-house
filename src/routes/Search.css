@@ -1,0 +1,22 @@
+.search-conteiner{
+    height: 100vh;
+}
+.texto{
+    width: 90%;
+    height: 30px;
+    margin-top: 30px;
+    color: white;
+    border-style: double;
+}
+.table-conteiner{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title-movies{
+    width: 100%;
+}
+.movies p{
+    font-size: large;
+    padding-left: 10px;
+}

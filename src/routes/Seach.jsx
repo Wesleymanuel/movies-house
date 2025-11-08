@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState,useEffect } from "react" 
 import Table from "../assets/Table"
 import './Search.css'
+import ContOptions from '../assets/ContOptions'
 
 
 const Seach = () => {
@@ -42,6 +43,7 @@ const Seach = () => {
 
   return (
     <div className="search-conteiner">
+        <ContOptions/>
         <div className="table-conteiner">
             <div className="texto">{query}</div>
             <Table onLetterClick={handleLetterClick} />
@@ -50,12 +52,13 @@ const Seach = () => {
         <div className="title-movies">
             {movieTitle.map((titleMovie) => (
             <div key={titleMovie.id} className="movies">
-                <h1>{titleMovie.title}</h1>
+                <p>{titleMovie.title}</p>
             </div>
             ))}
         </div>
     </div>
   )
+
 }
 
 export default Seach

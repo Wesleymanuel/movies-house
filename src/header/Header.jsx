@@ -23,6 +23,7 @@ const Header = () => {
                 <FaSearch style={{ fontSize : "20px" , color : "white"}}/>
               </Link>
             </div>
+            
         </nav>
     </div>
   )

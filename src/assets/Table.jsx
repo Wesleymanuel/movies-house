@@ -1,4 +1,5 @@
 import { MdOutlineSpaceBar } from "react-icons/md";
+import './Table.css'
 
 
 const Table = ({onLetterClick}) => {

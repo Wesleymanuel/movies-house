@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom" 
-import { useState, useEffect} from "react"
+import { useState, useEffect, useReducer} from "react"
 import axios from "axios"
 import { FaStar, FaPlus } from 'react-icons/fa'
 import { AiFillLike, AiFillDislike } from 'react-icons/ai'
 import { FaPlay } from "react-icons/fa"
 import {  GrInstallOption } from 'react-icons/gr'
 import { BiSolidMoviePlay } from "react-icons/bi"
+import { useDispatch } from "react-redux"
 
 
 
@@ -13,6 +14,8 @@ function ShowFilms() {
 
     const api_url = import.meta.env.VITE_API_URL
     const api_key = import.meta.env.VITE_API_KEY
+
+    const dispatch = useDispatch()
 
     const [movie, setMovie] = useState(null)
 

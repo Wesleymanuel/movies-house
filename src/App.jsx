@@ -1,21 +1,18 @@
 import Header from './header/Header'
-import Api from './api/Api'
 import './App.css'
-import RomaceFilms from './movies/RomaceFilms'
-import TerrorMovies from './movies/TerrorMovies'
 import ContOptions from './assets/ContOptions'
+import Movies from '../src/movies/Movies'
 
 function App() {
 
   return (
     <div className='app-conteiner'>
-      <Header/>
-      <RomaceFilms/>
-      <Api/>
-      <TerrorMovies/>
+      <Header className="header"/>
       <ContOptions/>
+      <Movies/>
     </div>
   )
 }
 
 export default App
+
