@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom" 
-import { useState, useEffect, useReducer} from "react"
-import axios from "axios"
+import { useState, useEffect} from "react"
+import { instance } from "../axios/Axios"
 import { FaStar, FaPlus } from 'react-icons/fa'
 import { AiFillLike, AiFillDislike } from 'react-icons/ai'
+import { HiOutlineXMark } from "react-icons/hi2";
 import { FaPlay } from "react-icons/fa"
 import {  GrInstallOption } from 'react-icons/gr'
 import { BiSolidMoviePlay } from "react-icons/bi"
 import { useDispatch} from "react-redux"
+import axios from "axios"
 import { addMovie } from "../features/MoviesSlice"
 
 
@@ -19,10 +21,11 @@ function ShowFilms() {
     const dispatch = useDispatch()
 
     const [movie, setMovie] = useState(null)
+    const [savedButton, setSavedButton] = useState(false)
 
     const { id } = useParams()
 
-        const individualMovie = async (url) => {
+    const individualMovie = async (url) => {
         axios.get(url)
         .then((res) => {
             console.log("certo")
@@ -37,9 +40,20 @@ function ShowFilms() {
         individualMovie(movieUrl)
     },[id])
 
-    const savingMuvies = (movies) => {
+    const savingMuvies = async (movies) => {
         console.log(movies)
         dispatch(addMovie(movies))
+        setSavedButton((prev) => !prev)
+        const sla = localStorage.getItem("id")
+        const genero_ids = movies.genres.map(g => g.id)
+        console.log(sla)
+        const payload = {
+            user_id : Number(sla),
+            filme_id : movies.id,
+            titulo : movies.title,
+            genero_id : genero_ids[0]
+        } 
+        await instance.post('favoritos', payload)
     }
 
 
@@ -88,10 +102,21 @@ function ShowFilms() {
                         <AiFillDislike/>
                         <p>nao gostei</p>
                     </div>
+                    {savedButton ?
+                    (
                     <div onClick={() => savingMuvies(movie)} className="text-white h-[50px] w-[150px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
-                        <FaPlus/>
+                        <HiOutlineXMark/>
                         <p>adicinar a lista</p>
                     </div>
+                    ) 
+                    : 
+                    (                    
+                    <div onClick={() => savingMuvies(movie)} className="text-white h-[50px] w-[150px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
+                            <FaPlus/>
+                        <p>adicinar a lista</p>
+                    </div>
+                    )
+                    }
             </div>
         </>) : <p>carregando...</p>  }
         </div>
