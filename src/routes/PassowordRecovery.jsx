@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { IoPersonCircleSharp } from "react-icons/io5"
 import './Passoword.css'
 import { instance } from '../axios/Axios'
 import { useForm } from '@mantine/form'

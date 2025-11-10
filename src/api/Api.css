@@ -14,17 +14,15 @@
     position: relative;
     color: white;
     max-height: 430px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
 }
 .movies .movies-img{
-    max-width: 270px ;
+    max-width: 260px ;
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 3px;
     overflow-y: none;
-    background-size: contain;
-
+    background-size:cover;
 }
 .button{
   position: absolute;
