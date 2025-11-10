@@ -7,6 +7,7 @@ import { MdLogout } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
 import { CiBookmarkPlus } from "react-icons/ci";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ContOptions = () => {
 
@@ -29,7 +30,9 @@ const ContOptions = () => {
     ''}
     <div className="options-conteiner">
       <div className="filmes-options">
-        <FaMicrochip className="icons" />
+        <Link to={'/saved'}>
+          <FaMicrochip className="icons" />
+        </Link>
         {ativo && <p>IA</p>}
       </div>
 
@@ -67,7 +70,3 @@ const ContOptions = () => {
 
 
 export default ContOptions
-
-{/*        <div className="cont-image">
-            <IoPersonCircleSharp/>
-        </div> */}

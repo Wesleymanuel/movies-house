@@ -34,15 +34,13 @@ const loginUser = async (values) => {
     }
     const res = await axios.post('http://localhost:3000/login', payload)
     localStorage.setItem("token" , res.data.token)
-    console.log("clicou")
+    localStorage.setItem("id", res.data.user_id)
+    console.log(res.data.user_id)
     navigate('/home')
   }catch(error){
     console.log(error)
   }
 }
-
-
-
 
   return (
     <main className='main'>
@@ -72,7 +70,7 @@ const loginUser = async (values) => {
                 </div>
 
                 <div>
-                  <Button type='submit' className='bot'style={{background : 'yellow', color: "black"}} >
+                  <Button type='submit' onClick={() => navigate('/home')} className='bot'style={{background : 'yellow', color: "black"}} >
                     botao
                   </Button>
                 </div>
