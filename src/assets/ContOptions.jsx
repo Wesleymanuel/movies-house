@@ -5,6 +5,7 @@ import { SlLike } from "react-icons/sl";
 import { PiListStarFill } from "react-icons/pi";
 import './Cont.css'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ContOptions = () => {
 
@@ -26,7 +27,9 @@ const ContOptions = () => {
     :
     ''}
       <div className="filmes-options">
-        <FaMicrochip className="icons" />
+        <Link to={'/saved'}>
+          <FaMicrochip className="icons" />
+        </Link>
         {ativo && <p>IA</p>}
       </div>
 
@@ -50,7 +53,3 @@ const ContOptions = () => {
 
 
 export default ContOptions
-
-{/*        <div className="cont-image">
-            <IoPersonCircleSharp/>
-        </div> */}

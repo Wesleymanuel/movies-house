@@ -6,7 +6,8 @@ import { AiFillLike, AiFillDislike } from 'react-icons/ai'
 import { FaPlay } from "react-icons/fa"
 import {  GrInstallOption } from 'react-icons/gr'
 import { BiSolidMoviePlay } from "react-icons/bi"
-import { useDispatch } from "react-redux"
+import { useDispatch} from "react-redux"
+import { addMovie } from "../features/MoviesSlice"
 
 
 
@@ -35,6 +36,14 @@ function ShowFilms() {
         const movieUrl = `${api_url}/movie/${id}?api_key=${api_key}&language=pt-BR&page=1`
         individualMovie(movieUrl)
     },[id])
+
+    const savingMuvies = (movies) => {
+        console.log(movies)
+        dispatch(addMovie(movies))
+    }
+
+
+
  
   return (
     <div className="h-dvh grid grid-cols-3 grid-rows-4 bg-black">
@@ -79,7 +88,7 @@ function ShowFilms() {
                         <AiFillDislike/>
                         <p>nao gostei</p>
                     </div>
-                    <div className="text-white h-[50px] w-[150px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
+                    <div onClick={() => savingMuvies(movie)} className="text-white h-[50px] w-[150px] flex flex-col justify-center items-center outline-solid hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
                         <FaPlus/>
                         <p>adicinar a lista</p>
                     </div>

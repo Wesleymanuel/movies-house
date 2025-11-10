@@ -6,7 +6,7 @@ import App from './App.jsx'
 import { MantineProvider } from '@mantine/core'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import store from './redux/Store.js'
+import store from './app/store.jsx'
 import InitialPage from './InitialPage.jsx'
 import Login from './routes/Login.jsx'
 import ShowFilms from './routes/ShowFilms.jsx'
@@ -14,6 +14,7 @@ import Seach from './routes/Seach.jsx'
 import TopicMovies from './routes/TopicMovies.jsx'
 import ProtectedRoute from './routes/ProtectedRoute.jsx'
 import PassowordRecovery from './routes/PassowordRecovery.jsx'
+import ListMoviesSaved from './routes/ListMoviesSaved.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -29,7 +30,7 @@ createRoot(document.getElementById('root')).render(
               <Route path='/filme/:id' element={<ShowFilms/>}/>
               <Route path='/search' element={<Seach/>}/>
               <Route path='/topc' element={<TopicMovies/>}/>
-            
+              <Route path='/saved' element={<ListMoviesSaved/>}/>
           </Routes>
         </Provider>
       </BrowserRouter>
