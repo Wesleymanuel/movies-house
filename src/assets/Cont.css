@@ -5,7 +5,6 @@
   width: 70px;
   height: 100vh;
   justify-content: center;
-  align-items: self-start;
   padding-left: 10px;
   background-color: transparent;
   transition: width 0.5s ease-in-out;
@@ -13,11 +12,11 @@
   z-index: 2;
   background-color: black;
 }
-
 .cont-conteiner.ativo {
   width: 150px;
+  display: flex;
+  justify-content: space-between;
 }
-
 .filmes-options {
   display: flex;
   align-items: center;
@@ -27,9 +26,22 @@
   color: white;
   transition: all 0.6s ease-in-out;
 }
-
 .icons {
   font-size: 24px;
+}
+.cont{
+  margin-top: 40px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.options-conteiner{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 

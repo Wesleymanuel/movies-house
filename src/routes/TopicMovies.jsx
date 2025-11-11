@@ -38,6 +38,8 @@ const TopicMovies = () => {
   return (
     <div style={{background : 'black' , height : "100%"}}>
         <Header/>
+        {movies ? 
+        (<>
         <h1 className="movies-types" style={{ marginTop : "10px"}}>{valor}</h1>
         <div className="conteiner-movies" style={{ display : "flex" , flexWrap: "wrap"}}>
             {movies.map(filme => (
@@ -47,6 +49,10 @@ const TopicMovies = () => {
                 </div>
             ))}
         </div>
+        </>) 
+        :
+        (<p>carregando...</p>)}
+
     </div>
   )
 }

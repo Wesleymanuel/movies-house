@@ -42,9 +42,6 @@ const loginUser = async (values) => {
   }
 }
 
-
-
-
   return (
     <main className='main'>
         <nav className='nav-home'>
@@ -73,7 +70,7 @@ const loginUser = async (values) => {
                 </div>
 
                 <div>
-                  <Button type='submit' onClick={loginUser} className='bot'style={{background : 'yellow', color: "black"}} >
+                  <Button type='submit' onClick={() => navigate('/home')} className='bot'style={{background : 'yellow', color: "black"}} >
                     botao
                   </Button>
                 </div>
