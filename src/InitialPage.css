@@ -50,3 +50,9 @@
     text-decoration: none;
     align-items: center;
 }
+
+@media  (max-width: 365px) {
+    .nav-home{
+        width: 100%;
+    }
+}

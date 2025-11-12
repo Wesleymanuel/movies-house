@@ -33,7 +33,7 @@ const ModalPassword = ({form,handleSubmit}) => {
 
   return (
     <div className='all'>
-                 <Stepper active={active} onStepClick={setActive}>
+                 <Stepper className='stepper' active={active} onStepClick={setActive}>
                     <Stepper.Step label="First step" description="verificar email">
                     </Stepper.Step>
                     <Stepper.Step label="Second step" description="criar nova senha">

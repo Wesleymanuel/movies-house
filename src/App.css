@@ -9,3 +9,22 @@
 .app-conteiner div{
     color: white;
 }
+
+@media(max-width: 365px){
+    .cont-conteiner{
+        display: none;
+    }
+    .app-conteiner >.movies-conteiner{
+        margin-left: 0px;
+    }
+    .conteiner-movies{
+        height: 300px;
+    }
+    .movies .movies-img{
+        height: 260px;
+        background-size:cover;
+    }
+    .app-conteiner > .conteiner > .header > div > .buttons-conteiner{
+        display: none;
+    }
+}

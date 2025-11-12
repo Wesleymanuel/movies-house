@@ -112,7 +112,7 @@ const Login = () => {
                             {...form.getInputProps('cpf')}
                         />
                     </div>
-                    <div className='w-[38%] ml-[2%]'>
+                    <div className='w-[38%] '>
                         <TextInput
                             label="Pais"
                             placeholder="Input placeholder"

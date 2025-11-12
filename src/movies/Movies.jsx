@@ -1,8 +1,9 @@
 import Api from '../api/Api'
+import './Movies.css'
 
 const Movies = () => {
   return (
-    <div style={{zIndex : "1", marginLeft: "60px"}}>
+    <div className='movies-conteiner'>
         <Api className="api"/>
     </div>
   )

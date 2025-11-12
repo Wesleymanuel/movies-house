@@ -20,3 +20,15 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     padding: 2rem;
 }
+@media (max-width: 365px) {
+    .form-conteiner{
+        width: 100%;
+    }
+    .form{
+        flex-direction: column;
+        width: 100%;
+    }
+    .form > div{
+        width: 100%;
+    }
+}
