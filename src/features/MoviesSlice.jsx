@@ -9,8 +9,10 @@ const MoviesSlice = createSlice({
 },
     reducers : {
         addMovie : (state,action) => {
-            console.log(action.payload)
             state.saved.push(action.payload)
+        },
+        removeMovie : (state,action) => {
+       
         }
     }
 })
